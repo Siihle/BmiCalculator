@@ -35,39 +35,54 @@ public class BmiCalculator{
 					
 			double bmi = calculateBMI(unitChoice, weight, height);
 			System.out.printf("BMI is %.2f\n", bmi);
+			System.out.println("");
 			
-			//repeat = askToRepeat(scanner);
-			
-			if(bmi < 18.5){
-				System.out.println("Underweight");
+			System.out.println("Compiling user info.");
+			try{
+				for(int i = 0; i < 5; i++){
+					Thread.sleep(500);
+					System.out.print(".");
+				}
+			} catch (InterruptedException e) {
+				
 			}
-			else if(bmi < 25){
-				System.out.println("Normal weight ");
-			}
-			else if(bmi < 30){
-				System.out.println("Overweight");
-			}
-			else if(bmi < 35){
-				System.out.println("Obese");
-			}
-			else if(bmi >= 35){
-				System.out.println("Severely obese");
-			}
+			System.out.println("\n");
 			
 			System.out.println("******************************************");
 			System.out.println("******************************************\n");
 			System.out.println("============== YOUR DETAILS ==============\n");
 			System.out.println("******************************************");
-			System.out.println("Names: " + firstname + " " + lastname);
+			System.out.println("Names: " + firstname.toUpperCase() + " " + lastname.toUpperCase());
 			System.out.println("Age : " + age);
 			System.out.println("Gender: " + gender);
 			System.out.println("Weight: " + weight);
 			System.out.println("Height: " + height);
-			System.out.printf("BMI is %.2f\n", bmi);
+			System.out.printf("Your BMI is: %.2f\n", bmi);
+			if(bmi < 18.5){
+				System.out.println("You are underweight.");
+				System.out.println("Eat more nutritious food, also try to maintain a healthy diet.");
+			}
+			else if(bmi < 25){
+				System.out.println("You weight is normal.");
+				System.out.println("Good job! Keep up your healthy lifestyle."); 
+			}
+			else if(bmi < 30){
+				System.out.println("Your are overweight.");
+				System.out.println("It will be good good to exercise regular, and have a healthy diet");
+			}
+			else if(bmi < 35){
+				System.out.println("You are obese.");
+				System.out.println("Focus on your health it's important and see a doctor.");
+			}
+			else if(bmi >= 35){
+				System.out.println("You are severely obese.");
+				System.out.println("Improve your health plan and seek a medical advice");
+			}
 			System.out.println("******************************************");
 			
 			System.out.print("Do you want to repeat (Y or N): ");
 			repeat = scanner.next().charAt(0);
+			scanner.nextLine();
 			System.out.println("******************************************");
 		}while(repeat == 'Y' || repeat == 'y');
 		
